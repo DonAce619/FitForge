@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import EquipmentChecklist from './components/EquipmentChecklist'
 import WorkoutSplitCard from './components/WorkoutSplitCard'
 import AIWorkoutGenerator from './components/AIWorkoutGenerator'
+import ThemeToggle from './components/ThemeToggle'
 import LandingPage from './components/LandingPage'
 import { useTacticalSounds } from './components/SoundManager'
 import { getFilteredSplits } from './data/workouts'
@@ -254,6 +255,11 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      {/* Header with Theme Toggle */}
+      <header className="fixed top-0 right-0 z-50 p-4">
+        <ThemeToggle />
+      </header>
+      
       {/* Navbar - Only show when not on landing page */}
       {currentView !== 'landing' && <Navbar currentView={currentView} onHomeClick={handleGoHome} />}
       

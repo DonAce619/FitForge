@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   const currentThemeData = getTheme(currentTheme)
 
   return (
-    <div className="relative">
+    <div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
