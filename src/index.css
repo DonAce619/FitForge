@@ -1,0 +1,1531 @@
+@import 'animate.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+#equipment, #splits {
+  scroll-margin-top: 5rem;
+}
+
+/* Custom cursor styles */
+body {
+  cursor: var(--cursor-theme, url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23ef4444' stroke='%23dc2626' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto);
+}
+
+/* Enhanced cursor interactions */
+button, a, [role="button"] {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover, a:hover, [role="button"]:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+button:active, a:active, [role="button"]:active {
+  cursor: pointer;
+  transform: scale(0.98);
+}
+
+/* Theme base styles */
+body {
+  transition: all 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Black Ops Theme - MATCH JUNGLE SIZES */
+body.theme-blackOps {
+  background: linear-gradient(135deg, #030712 0%, #111827 50%, #000000 100%) !important;
+  --cursor-theme: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23ef4444' stroke='%23dc2626' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto;
+  --blackops-primary: #111827;
+  --blackops-secondary: #1f2937;
+  --blackops-accent: #ef4444;
+  --blackops-accent-dark: #dc2626;
+  --blackops-light: #f9fafb;
+  --blackops-lighter: #f3f4f6;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --card-bg: rgba(17, 24, 39, 0.95);
+  --card-border: rgba(239, 68, 68, 0.3);
+  --shadow-blackops: rgba(239, 68, 68, 0.15);
+}
+
+/* GLOBAL BLACKOPS THEME STYLES */
+body.theme-blackOps * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Text colors - MAXIMUM READABILITY */
+body.theme-blackOps .text-gray-100 { color: var(--text-primary) !important; font-weight: 600 !important; }
+body.theme-blackOps .text-gray-400 { color: var(--text-secondary) !important; font-weight: 500 !important; }
+body.theme-blackOps .text-gray-500 { color: var(--text-tertiary) !important; }
+body.theme-blackOps .text-gray-600 { color: var(--text-primary) !important; font-weight: 600 !important; }
+body.theme-blackOps .text-red-400 { color: var(--blackops-accent) !important; font-weight: 700 !important; }
+body.theme-blackOps .text-yellow-400 { color: var(--blackops-accent) !important; font-weight: 600 !important; }
+body.theme-blackOps .text-green-400 { color: #10b981 !important; font-weight: 600 !important; }
+
+/* Background colors - BLACKOPS CARDS */
+body.theme-blackOps .bg-gray-900\/50 { 
+  background: var(--card-bg) !important; 
+  border: 2px solid var(--card-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-blackops), 0 10px 10px -5px rgba(239, 68, 68, 0.04) !important;
+}
+
+body.theme-blackOps .bg-gray-800\/50 { 
+  background: rgba(31, 41, 55, 0.95) !important; 
+  border: 2px solid var(--card-border) !important;
+  border-radius: 12px !important;
+}
+
+body.theme-blackOps .bg-gray-800\/30 { 
+  background: rgba(55, 65, 81, 0.95) !important; 
+  border: 1px solid var(--card-border) !important;
+  border-radius: 8px !important;
+}
+
+body.theme-blackOps .bg-gray-800 { 
+  background: var(--blackops-secondary) !important; 
+  border: 1px solid var(--card-border) !important;
+}
+
+body.theme-blackOps .bg-gray-700 { 
+  background: var(--blackops-light) !important; 
+  border: 1px solid var(--blackops-accent) !important;
+}
+
+body.theme-blackOps .bg-gray-900\/95 { 
+  background: var(--card-bg) !important; 
+  border: 2px solid var(--card-border) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops) !important;
+}
+
+/* Border colors - BLACKOPS ACCENTS */
+body.theme-blackOps .border-gray-800\/50 { border-color: var(--card-border) !important; }
+body.theme-blackOps .border-gray-700\/50 { border-color: var(--card-border) !important; }
+body.theme-blackOps .border-gray-700\/30 { border-color: var(--card-border) !important; }
+
+/* Accent colors - RED ACCENTS */
+body.theme-blackOps .bg-red-500\/10 { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.15)) !important;
+  border: 1px solid var(--blackops-accent) !important;
+}
+
+body.theme-blackOps .bg-red-500\/20 { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.25)) !important;
+  border: 1px solid var(--blackops-accent-dark) !important;
+}
+
+body.theme-blackOps .border-red-500\/30 { border-color: var(--blackops-accent) !important; }
+body.theme-blackOps .border-red-500\/50 { border-color: var(--blackops-accent-dark) !important; }
+
+body.theme-blackOps .bg-yellow-500\/10 { 
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.15)) !important;
+  border: 1px solid var(--blackops-accent) !important;
+}
+
+body.theme-blackOps .border-yellow-500\/30 { border-color: var(--blackops-accent) !important; }
+
+body.theme-blackOps .bg-green-500\/10 { 
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.15)) !important;
+  border: 1px solid #10b981 !important;
+}
+
+body.theme-blackOps .border-green-500\/30 { border-color: #10b981 !important; }
+
+/* Buttons - MATCH JUNGLE SIZES */
+body.theme-blackOps button {
+  background: linear-gradient(135deg, var(--blackops-secondary), var(--blackops-primary)) !important;
+  border: 2px solid var(--blackops-accent) !important;
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  padding: 14px 28px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px -1px var(--shadow-blackops), 0 2px 4px -1px rgba(239, 68, 68, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-blackOps button::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.2), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+body.theme-blackOps button:hover::before {
+  left: 100% !important;
+}
+
+body.theme-blackOps button:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.15)) !important;
+  border-color: var(--blackops-accent-dark) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-blackops), 0 10px 10px -5px rgba(239, 68, 68, 0.04) !important;
+}
+
+body.theme-blackOps button:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+body.theme-blackOps .bg-red-500 {
+  background: linear-gradient(135deg, var(--blackops-accent), var(--blackops-accent-dark)) !important;
+  color: var(--blackops-primary) !important;
+  border: 2px solid var(--blackops-accent-dark) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.theme-blackOps .bg-red-500:hover {
+  background: linear-gradient(135deg, var(--blackops-accent-dark), #b91c1c) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* CARDS - MATCH JUNGLE SIZES */
+body.theme-blackOps .card,
+body.theme-blackOps .bg-gray-900\/95,
+body.theme-blackOps .bg-gray-800\/50 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-blackops), 0 10px 10px -5px rgba(239, 68, 68, 0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-blackOps .card::before,
+body.theme-blackOps .bg-gray-900\/95::before,
+body.theme-blackOps .bg-gray-800\/50::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--blackops-accent), var(--blackops-accent-dark), var(--blackops-accent)) !important;
+}
+
+body.theme-blackOps .card:hover,
+body.theme-blackOps .bg-gray-900\/95:hover,
+body.theme-blackOps .bg-gray-800\/50:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops), 0 20px 25px -5px rgba(239, 68, 68, 0.1) !important;
+  border-color: var(--blackops-accent) !important;
+}
+
+/* INPUTS AND FORMS */
+body.theme-blackOps input, 
+body.theme-blackOps select, 
+body.theme-blackOps textarea {
+  background: var(--blackops-secondary) !important;
+  border: 2px solid var(--card-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-weight: 500 !important;
+}
+
+body.theme-blackOps input:focus, 
+body.theme-blackOps select:focus, 
+body.theme-blackOps textarea:focus {
+  border-color: var(--blackops-accent) !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1), 0 0 0 2px var(--blackops-accent) !important;
+  outline: none !important;
+}
+
+/* NAVBAR - MATCH JUNGLE SIZES */
+body.theme-blackOps .navbar {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.98), rgba(17, 24, 39, 0.98)) !important;
+  border-bottom: 3px solid var(--blackops-accent) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 10px 15px -3px var(--shadow-blackops), 0 4px 6px -2px rgba(239, 68, 68, 0.05) !important;
+}
+
+body.theme-blackOps .navbar::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--blackops-accent), var(--blackops-accent-dark), var(--blackops-accent)) !important;
+}
+
+body.theme-blackOps .navbar .text-gray-100 { color: var(--text-primary) !important; font-weight: 800 !important; }
+body.theme-blackOps .navbar .text-gray-500 { color: var(--text-secondary) !important; font-weight: 600 !important; }
+body.theme-blackOps .navbar .text-gray-400 { color: var(--text-tertiary) !important; font-weight: 500 !important; }
+body.theme-blackOps .navbar .text-red-400 { color: var(--blackops-accent) !important; font-weight: 700 !important; }
+
+body.theme-blackOps .navbar .bg-red-500\/10 {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.2)) !important;
+  border: 2px solid var(--blackops-accent) !important;
+}
+
+body.theme-blackOps .navbar .border-red-500\/30 { border-color: var(--blackops-accent) !important; }
+body.theme-blackOps .navbar .border-red-500\/50 { border-color: var(--blackops-accent-dark) !important; }
+body.theme-blackOps .navbar .border-gray-800\/50 { border-color: var(--card-border) !important; }
+
+body.theme-blackOps .navbar .hover\:bg-red-500\/10:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.25), rgba(220, 38, 38, 0.3)) !important;
+}
+
+body.theme-blackOps .navbar .hover\:text-red-400:hover { color: var(--blackops-accent-dark) !important; }
+
+body.theme-blackOps .navbar .dropdown .bg-gradient-to-br {
+  background: linear-gradient(135deg, var(--card-bg), rgba(31, 41, 55, 0.98)) !important;
+  border: 2px solid var(--blackops-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops) !important;
+}
+
+body.theme-blackOps .navbar .bg-green-400 { background: linear-gradient(135deg, #10b981, #059669) !important; }
+
+body.theme-blackOps .navbar .btn {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+}
+
+body.theme-blackOps .navbar .btn:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.15)) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* LINKS */
+body.theme-blackOps a {
+  color: var(--blackops-accent) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  position: relative !important;
+}
+
+body.theme-blackOps a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: var(--blackops-accent) !important;
+  transition: width 0.3s !important;
+}
+
+body.theme-blackOps a:hover::after {
+  width: 100% !important;
+}
+
+body.theme-blackOps a:hover {
+  color: var(--blackops-accent-dark) !important;
+}
+
+/* STATUS INDICATORS */
+body.theme-blackOps .bg-green-400 { 
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2) !important;
+}
+
+body.theme-blackOps .bg-yellow-400 { 
+  background: linear-gradient(135deg, var(--blackops-accent), var(--blackops-accent-dark)) !important;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* PROGRESS BARS */
+body.theme-blackOps .bg-gray-800 { 
+  background: linear-gradient(90deg, var(--blackops-primary), var(--blackops-secondary)) !important;
+  border-radius: 8px !important;
+}
+
+/* SHADOWS */
+body.theme-blackOps .shadow-lg {
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops), 0 20px 25px -5px rgba(239, 68, 68, 0.1) !important;
+}
+
+body.theme-blackOps .shadow-xl {
+  box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.25), 0 20px 25px -5px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* FOCUS STATES */
+body.theme-blackOps *:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1), 0 0 0 2px var(--blackops-accent) !important;
+}
+
+/* ANIMATIONS */
+body.theme-blackOps .animate-pulse {
+  animation: pulse-blackops 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+@keyframes pulse-blackops {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* SPECIAL EFFECTS */
+body.theme-blackOps .hover\:bg-gray-800\/50:hover {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.15)) !important;
+  border-color: var(--blackops-accent) !important;
+}
+
+/* CONTAINERS */
+body.theme-blackOps .container {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+  border-radius: 20px !important;
+  padding: 40px !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops) !important;
+}
+
+/* EQUIPMENT CHECKLIST */
+body.theme-blackOps .bg-gray-700 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+/* WORKOUT CARDS */
+body.theme-blackOps .border-gray-800\/50 {
+  border-color: var(--blackops-accent) !important;
+}
+
+/* AI GENERATOR - MATCH JUNGLE SIZES */
+body.theme-blackOps .bg-gray-900\/95 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--blackops-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops) !important;
+}
+
+body.theme-blackOps .bg-gray-800 {
+  background: var(--blackops-secondary) !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+/* THEME TOGGLE */
+body.theme-blackOps .bg-gray-900\/95 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--blackops-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-blackops) !important;
+}
+
+/* INTERACTIVE ELEMENTS */
+body.theme-blackOps .interactive {
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body.theme-blackOps .interactive:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-blackops) !important;
+}
+
+body.theme-blackOps .interactive:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* GRADIENT OVERLAYS */
+body.theme-blackOps .gradient-overlay {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-blackOps .gradient-overlay::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+body.theme-blackOps .gradient-overlay:hover::before {
+  left: 100% !important;
+}
+
+/* Black Ops Theme AI Generator Fixes */
+body.theme-blackOps .bg-gray-800 {
+  background-color: var(--blackops-secondary) !important;
+  border: 2px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+body.theme-blackOps .bg-gray-800\/50 {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+body.theme-blackOps .bg-gray-900\/50 {
+  background-color: rgba(17, 24, 39, 0.98) !important;
+  border: 2px solid rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.15) !important;
+}
+
+body.theme-blackOps button {
+  background-color: var(--blackops-secondary) !important;
+  border: 2px solid rgba(239, 68, 68, 0.6) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+body.theme-blackOps button:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(239, 68, 68, 0.8) !important;
+}
+
+body.theme-blackOps .bg-red-500 {
+  background-color: var(--blackops-accent) !important;
+  color: var(--blackops-primary) !important;
+}
+
+body.theme-blackOps .bg-gray-900\/50 {
+  background-color: rgba(17, 24, 39, 0.98) !important;
+  border: 2px solid rgba(239, 68, 68, 0.4) !important;
+  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.15) !important;
+}
+
+body.theme-blackOps button {
+  background-color: #1f2937 !important;
+  border: 2px solid rgba(239, 68, 68, 0.6) !important;
+  color: #f9fafb !important;
+  font-weight: 600 !important;
+}
+
+body.theme-blackOps button:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(239, 68, 68, 0.8) !important;
+}
+
+body.theme-blackOps .bg-red-500 {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+/* Jungle Theme - COMPLETE ENHANCEMENT */
+body.theme-jungle {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%) !important;
+  --cursor-theme: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23fbbf24' stroke='%23f59e0b' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto;
+  --jungle-primary: #065f46;
+  --jungle-secondary: #047857;
+  --jungle-accent: #fbbf24;
+  --jungle-accent-dark: #f59e0b;
+  --jungle-light: #d1fae5;
+  --jungle-lighter: #ecfdf5;
+  --text-primary: #ecfdf5;
+  --text-secondary: #d1fae5;
+  --text-tertiary: #6ee7b7;
+  --card-bg: rgba(6, 95, 70, 0.95);
+  --card-border: rgba(251, 191, 36, 0.3);
+  --shadow-jungle: rgba(5, 150, 105, 0.15);
+}
+
+/* GLOBAL JUNGLE THEME STYLES */
+body.theme-jungle * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Text colors - MAXIMUM READABILITY */
+body.theme-jungle .text-gray-100 { color: var(--text-primary) !important; font-weight: 600 !important; }
+body.theme-jungle .text-gray-400 { color: var(--text-secondary) !important; font-weight: 500 !important; }
+body.theme-jungle .text-gray-500 { color: var(--text-tertiary) !important; }
+body.theme-jungle .text-gray-600 { color: var(--text-primary) !important; font-weight: 600 !important; }
+body.theme-jungle .text-red-400 { color: var(--jungle-accent) !important; font-weight: 700 !important; }
+body.theme-jungle .text-yellow-400 { color: var(--jungle-accent) !important; font-weight: 600 !important; }
+body.theme-jungle .text-green-400 { color: #34d399 !important; font-weight: 600 !important; }
+
+/* Background colors - JUNGLE CARDS */
+body.theme-jungle .bg-gray-900\/50 { 
+  background: var(--card-bg) !important; 
+  border: 2px solid var(--card-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-jungle), 0 10px 10px -5px rgba(5, 150, 105, 0.04) !important;
+}
+
+body.theme-jungle .bg-gray-800\/50 { 
+  background: rgba(5, 150, 105, 0.95) !important; 
+  border: 2px solid var(--card-border) !important;
+  border-radius: 12px !important;
+}
+
+body.theme-jungle .bg-gray-800\/30 { 
+  background: rgba(16, 185, 129, 0.95) !important; 
+  border: 1px solid var(--card-border) !important;
+  border-radius: 8px !important;
+}
+
+body.theme-jungle .bg-gray-800 { 
+  background: var(--jungle-secondary) !important; 
+  border: 1px solid var(--card-border) !important;
+}
+
+body.theme-jungle .bg-gray-700 { 
+  background: var(--jungle-light) !important; 
+  border: 1px solid var(--jungle-accent) !important;
+}
+
+body.theme-jungle .bg-gray-900\/95 { 
+  background: var(--card-bg) !important; 
+  border: 2px solid var(--card-border) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle) !important;
+}
+
+/* Border colors - JUNGLE ACCENTS */
+body.theme-jungle .border-gray-800\/50 { border-color: var(--card-border) !important; }
+body.theme-jungle .border-gray-700\/50 { border-color: var(--card-border) !important; }
+body.theme-jungle .border-gray-700\/30 { border-color: var(--card-border) !important; }
+
+/* Accent colors - GOLDEN ACCENTS */
+body.theme-jungle .bg-red-500\/10 { 
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.15)) !important;
+  border: 1px solid var(--jungle-accent) !important;
+}
+
+body.theme-jungle .bg-red-500\/20 { 
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.25)) !important;
+  border: 1px solid var(--jungle-accent-dark) !important;
+}
+
+body.theme-jungle .border-red-500\/30 { border-color: var(--jungle-accent) !important; }
+body.theme-jungle .border-red-500\/50 { border-color: var(--jungle-accent-dark) !important; }
+
+body.theme-jungle .bg-yellow-500\/10 { 
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.15)) !important;
+  border: 1px solid var(--jungle-accent) !important;
+}
+
+body.theme-jungle .border-yellow-500\/30 { border-color: var(--jungle-accent) !important; }
+
+body.theme-jungle .bg-green-500\/10 { 
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.15)) !important;
+  border: 1px solid #22c55e !important;
+}
+
+body.theme-jungle .border-green-500\/30 { border-color: #22c55e !important; }
+
+/* Buttons - EYE-CATCHING JUNGLE DESIGN */
+body.theme-jungle button {
+  background: linear-gradient(135deg, var(--jungle-secondary), var(--jungle-primary)) !important;
+  border: 2px solid var(--jungle-accent) !important;
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  padding: 14px 28px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px -1px var(--shadow-jungle), 0 2px 4px -1px rgba(5, 150, 105, 0.06) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-jungle button::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+body.theme-jungle button:hover::before {
+  left: 100% !important;
+}
+
+body.theme-jungle button:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.15)) !important;
+  border-color: var(--jungle-accent-dark) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-jungle), 0 10px 10px -5px rgba(5, 150, 105, 0.04) !important;
+}
+
+body.theme-jungle button:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+body.theme-jungle .bg-red-500 {
+  background: linear-gradient(135deg, var(--jungle-accent), var(--jungle-accent-dark)) !important;
+  color: var(--jungle-primary) !important;
+  border: 2px solid var(--jungle-accent-dark) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.theme-jungle .bg-red-500:hover {
+  background: linear-gradient(135deg, var(--jungle-accent-dark), #d97706) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.25) !important;
+}
+
+/* CARDS - EYE-CATCHING JUNGLE DESIGN */
+body.theme-jungle .card,
+body.theme-jungle .bg-gray-900\/95,
+body.theme-jungle .bg-gray-800\/50 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-jungle), 0 10px 10px -5px rgba(5, 150, 105, 0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-jungle .card::before,
+body.theme-jungle .bg-gray-900\/95::before,
+body.theme-jungle .bg-gray-800\/50::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--jungle-accent), var(--jungle-accent-dark), var(--jungle-accent)) !important;
+}
+
+body.theme-jungle .card:hover,
+body.theme-jungle .bg-gray-900\/95:hover,
+body.theme-jungle .bg-gray-800\/50:hover {
+  transform: translateY(-4px) scale(1.01) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle), 0 20px 25px -5px rgba(5, 150, 105, 0.1) !important;
+  border-color: var(--jungle-accent) !important;
+}
+
+/* INPUTS AND FORMS */
+body.theme-jungle input, 
+body.theme-jungle select, 
+body.theme-jungle textarea {
+  background: var(--jungle-secondary) !important;
+  border: 2px solid var(--card-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-weight: 500 !important;
+}
+
+body.theme-jungle input:focus, 
+body.theme-jungle select:focus, 
+body.theme-jungle textarea:focus {
+  border-color: var(--jungle-accent) !important;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1), 0 0 0 2px var(--jungle-accent) !important;
+  outline: none !important;
+}
+
+/* NAVBAR - STUNNING JUNGLE DESIGN */
+body.theme-jungle .navbar {
+  background: linear-gradient(135deg, rgba(6, 95, 70, 0.98), rgba(5, 150, 105, 0.98), rgba(6, 95, 70, 0.98)) !important;
+  border-bottom: 3px solid var(--jungle-accent) !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 10px 15px -3px var(--shadow-jungle), 0 4px 6px -2px rgba(5, 150, 105, 0.05) !important;
+}
+
+body.theme-jungle .navbar::before {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--jungle-accent), var(--jungle-accent-dark), var(--jungle-accent)) !important;
+}
+
+body.theme-jungle .navbar .text-gray-100 { color: var(--text-primary) !important; font-weight: 800 !important; }
+body.theme-jungle .navbar .text-gray-500 { color: var(--text-secondary) !important; font-weight: 600 !important; }
+body.theme-jungle .navbar .text-gray-400 { color: var(--text-tertiary) !important; font-weight: 500 !important; }
+body.theme-jungle .navbar .text-red-400 { color: var(--jungle-accent) !important; font-weight: 700 !important; }
+
+body.theme-jungle .navbar .bg-red-500\/10 {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.2)) !important;
+  border: 2px solid var(--jungle-accent) !important;
+}
+
+body.theme-jungle .navbar .border-red-500\/30 { border-color: var(--jungle-accent) !important; }
+body.theme-jungle .navbar .border-red-500\/50 { border-color: var(--jungle-accent-dark) !important; }
+body.theme-jungle .navbar .border-gray-800\/50 { border-color: var(--card-border) !important; }
+
+body.theme-jungle .navbar .hover\:bg-red-500\/10:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(245, 158, 11, 0.3)) !important;
+}
+
+body.theme-jungle .navbar .hover\:text-red-400:hover { color: var(--jungle-accent-dark) !important; }
+
+body.theme-jungle .navbar .dropdown .bg-gradient-to-br {
+  background: linear-gradient(135deg, var(--card-bg), rgba(5, 150, 105, 0.98)) !important;
+  border: 2px solid var(--jungle-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle) !important;
+}
+
+body.theme-jungle .navbar .bg-green-400 { background: linear-gradient(135deg, #22c55e, #16a34a) !important; }
+
+body.theme-jungle .navbar .btn {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+}
+
+body.theme-jungle .navbar .btn:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.15)) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* LINKS */
+body.theme-jungle a {
+  color: var(--jungle-accent) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  position: relative !important;
+}
+
+body.theme-jungle a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: var(--jungle-accent) !important;
+  transition: width 0.3s !important;
+}
+
+body.theme-jungle a:hover::after {
+  width: 100% !important;
+}
+
+body.theme-jungle a:hover {
+  color: var(--jungle-accent-dark) !important;
+}
+
+/* STATUS INDICATORS */
+body.theme-jungle .bg-green-400 { 
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+  box-shadow: 0 4px 6px -1px rgba(34, 197, 94, 0.2) !important;
+}
+
+body.theme-jungle .bg-yellow-400 { 
+  background: linear-gradient(135deg, var(--jungle-accent), var(--jungle-accent-dark)) !important;
+  box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.2) !important;
+}
+
+/* PROGRESS BARS */
+body.theme-jungle .bg-gray-800 { 
+  background: linear-gradient(90deg, var(--jungle-primary), var(--jungle-secondary)) !important;
+  border-radius: 8px !important;
+}
+
+/* SHADOWS */
+body.theme-jungle .shadow-lg {
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle), 0 20px 25px -5px rgba(5, 150, 105, 0.1) !important;
+}
+
+body.theme-jungle .shadow-xl {
+  box-shadow: 0 25px 50px -12px rgba(5, 150, 105, 0.25), 0 20px 25px -5px rgba(5, 150, 105, 0.15) !important;
+}
+
+/* FOCUS STATES */
+body.theme-jungle *:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.1), 0 0 0 2px var(--jungle-accent) !important;
+}
+
+/* ANIMATIONS */
+body.theme-jungle .animate-pulse {
+  animation: pulse-jungle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+@keyframes pulse-jungle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* SPECIAL EFFECTS */
+body.theme-jungle .hover\:bg-gray-800\/50:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.15)) !important;
+  border-color: var(--jungle-accent) !important;
+}
+
+/* CONTAINERS */
+body.theme-jungle .container {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+  border-radius: 20px !important;
+  padding: 40px !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle) !important;
+}
+
+/* EQUIPMENT CHECKLIST */
+body.theme-jungle .bg-gray-700 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+/* WORKOUT CARDS */
+body.theme-jungle .border-gray-800\/50 {
+  border-color: var(--jungle-accent) !important;
+}
+
+/* AI GENERATOR - STUNNING JUNGLE DESIGN */
+body.theme-jungle .bg-gray-900\/95 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--jungle-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle) !important;
+}
+
+body.theme-jungle .bg-gray-800 {
+  background: var(--jungle-secondary) !important;
+  border: 2px solid var(--card-border) !important;
+}
+
+/* THEME TOGGLE */
+body.theme-jungle .bg-gray-900\/95 {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--jungle-accent) !important;
+  box-shadow: 0 25px 50px -12px var(--shadow-jungle) !important;
+}
+
+/* INTERACTIVE ELEMENTS */
+body.theme-jungle .interactive {
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body.theme-jungle .interactive:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 20px 25px -5px var(--shadow-jungle) !important;
+}
+
+body.theme-jungle .interactive:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* GRADIENT OVERLAYS */
+body.theme-jungle .gradient-overlay {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+body.theme-jungle .gradient-overlay::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.1), transparent) !important;
+  transition: left 0.5s !important;
+}
+
+body.theme-jungle .gradient-overlay:hover::before {
+  left: 100% !important;
+}
+
+/* Jungle Theme AI Generator Fixes */
+body.theme-jungle .bg-gray-800 {
+  background-color: var(--jungle-secondary) !important;
+  border: 2px solid rgba(251, 191, 36, 0.3) !important;
+}
+
+body.theme-jungle .bg-gray-800\/50 {
+  background-color: rgba(5, 150, 105, 0.9) !important;
+  border: 1px solid rgba(251, 191, 36, 0.4) !important;
+}
+
+body.theme-jungle .bg-gray-900\/50 {
+  background-color: rgba(6, 95, 70, 0.98) !important;
+  border: 2px solid rgba(251, 191, 36, 0.4) !important;
+  box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.15) !important;
+}
+
+body.theme-jungle button {
+  background-color: var(--jungle-secondary) !important;
+  border: 2px solid rgba(251, 191, 36, 0.6) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+body.theme-jungle button:hover {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+  border-color: rgba(251, 191, 36, 0.8) !important;
+}
+
+body.theme-jungle .bg-red-500 {
+  background-color: var(--jungle-accent) !important;
+  color: var(--jungle-primary) !important;
+}
+
+/* Enhanced AI Generator Layout */
+.ai-generator-container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 40px !important;
+}
+
+.ai-progress-bar {
+  height: 8px !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.ai-step-card {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 2px solid rgba(251, 146, 60, 0.3) !important;
+  border-radius: 16px !important;
+  padding: 32px !important;
+  margin: 24px 0 !important;
+  box-shadow: 0 10px 25px rgba(251, 146, 60, 0.1) !important;
+}
+
+.ai-goal-card {
+  background: #ffffff !important;
+  border: 2px solid rgba(251, 146, 60, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  margin: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.ai-goal-card:hover {
+  border-color: rgba(251, 146, 60, 0.6) !important;
+  box-shadow: 0 8px 25px rgba(251, 146, 60, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+.ai-goal-card.selected {
+  border-color: rgba(251, 146, 60, 0.8) !important;
+  background: rgba(251, 146, 60, 0.05) !important;
+}
+
+/* Fix for all themes - better spacing and layout */
+.container.mx-auto {
+  max-width: 1200px !important;
+  padding: 0 24px !important;
+}
+
+/* Better card styling */
+.card {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Enhanced button styling */
+.btn {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* Progress indicators */
+body.theme-sunny .animate-pulse {
+  opacity: 0.8;
+}
+
+/* Icons for Sunny theme */
+body.theme-sunny svg {
+  color: inherit !important;
+}
+
+/* Special fixes for AI Generator steps */
+body.theme-sunny .bg-gray-900\/95 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(251, 146, 60, 0.3) !important;
+}
+
+/* Card hover effects */
+body.theme-sunny .card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 20px 25px -5px rgba(251, 146, 60, 0.2) !important;
+}
+
+/* Black Ops Theme */
+body.theme-blackOps {
+  background: linear-gradient(135deg, #030712 0%, #111827 50%, #000000 100%) !important;
+  --cursor-theme: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23ef4444' stroke='%23dc2626' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto;
+}
+
+/* Text colors for Black Ops theme - high contrast */
+body.theme-blackOps .text-gray-100 { color: #f9fafb !important; }
+body.theme-blackOps .text-gray-400 { color: #d1d5db !important; }
+body.theme-blackOps .text-gray-500 { color: #9ca3af !important; }
+body.theme-blackOps .text-gray-600 { color: #6b7280 !important; }
+body.theme-blackOps .text-red-400 { color: #ef4444 !important; }
+body.theme-blackOps .text-yellow-400 { color: #f59e0b !important; }
+body.theme-blackOps .text-green-400 { color: #10b981 !important; }
+
+/* Background colors for Black Ops theme - proper depth */
+body.theme-blackOps .bg-gray-900\/50 { background-color: rgba(17, 24, 39, 0.85) !important; }
+body.theme-blackOps .bg-gray-800\/50 { background-color: rgba(31, 41, 55, 0.85) !important; }
+body.theme-blackOps .bg-gray-800\/30 { background-color: rgba(31, 41, 55, 0.5) !important; }
+body.theme-blackOps .bg-gray-800 { background-color: #1f2937 !important; }
+body.theme-blackOps .bg-gray-700 { background-color: #374151 !important; }
+body.theme-blackOps .bg-gray-900\/95 { background-color: rgba(17, 24, 39, 0.95) !important; }
+
+/* Border colors for Black Ops theme - military style */
+body.theme-blackOps .border-gray-800\/50 { border-color: rgba(239, 68, 68, 0.4) !important; }
+body.theme-blackOps .border-gray-700\/50 { border-color: rgba(239, 68, 68, 0.5) !important; }
+body.theme-blackOps .border-gray-700\/30 { border-color: rgba(239, 68, 68, 0.3) !important; }
+
+/* Accent colors for Black Ops theme */
+body.theme-blackOps .bg-red-500\/10 { background-color: rgba(239, 68, 68, 0.15) !important; }
+body.theme-blackOps .bg-red-500\/20 { background-color: rgba(239, 68, 68, 0.25) !important; }
+body.theme-blackOps .border-red-500\/30 { border-color: rgba(239, 68, 68, 0.4) !important; }
+body.theme-blackOps .border-red-500\/50 { border-color: rgba(239, 68, 68, 0.6) !important; }
+
+body.theme-blackOps .bg-yellow-500\/10 { background-color: rgba(245, 158, 11, 0.15) !important; }
+body.theme-blackOps .border-yellow-500\/30 { border-color: rgba(245, 158, 11, 0.4) !important; }
+
+body.theme-blackOps .bg-green-500\/10 { background-color: rgba(16, 185, 129, 0.15) !important; }
+body.theme-blackOps .border-green-500\/30 { border-color: rgba(16, 185, 129, 0.4) !important; }
+
+/* Progress bars for Black Ops theme */
+body.theme-blackOps .bg-gray-800 { background-color: #374151 !important; }
+
+/* Buttons for Black Ops theme */
+body.theme-blackOps button {
+  color: #f9fafb !important;
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+body.theme-blackOps button:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Theme toggle specific for Black Ops */
+body.theme-blackOps .bg-gray-900\/95 {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+body.theme-blackOps .border-gray-700\/50 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Cards and panels for Black Ops theme */
+body.theme-blackOps .bg-gray-900\/95 {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1), 0 2px 4px -1px rgba(239, 68, 68, 0.06) !important;
+}
+
+/* Icons for both themes */
+body.theme-sunny svg {
+  color: inherit !important;
+}
+
+body.theme-blackOps svg {
+  color: inherit !important;
+}
+
+/* Input fields and form elements */
+body.theme-sunny input, 
+body.theme-sunny select, 
+body.theme-sunny textarea {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(251, 146, 60, 0.3) !important;
+  color: #1f2937 !important;
+}
+
+body.theme-blackOps input, 
+body.theme-blackOps select, 
+body.theme-blackOps textarea {
+  background-color: rgba(31, 41, 55, 0.9) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #f9fafb !important;
+}
+
+/* Hover states for interactive elements */
+body.theme-sunny .hover\:bg-gray-800\/50:hover {
+  background-color: rgba(251, 146, 60, 0.1) !important;
+}
+
+body.theme-blackOps .hover\:bg-gray-800\/50:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Links and navigation */
+body.theme-sunny a {
+  color: #dc2626 !important;
+}
+
+body.theme-sunny a:hover {
+  color: #b91c1c !important;
+}
+
+body.theme-blackOps a {
+  color: #ef4444 !important;
+}
+
+body.theme-blackOps a:hover {
+  color: #dc2626 !important;
+}
+
+/* Status indicators and badges */
+body.theme-sunny .bg-green-400 {
+  background-color: #059669 !important;
+}
+
+body.theme-blackOps .bg-green-400 {
+  background-color: #10b981 !important;
+}
+
+/* Progress indicators and loading states */
+body.theme-sunny .animate-pulse {
+  opacity: 0.7;
+}
+
+body.theme-blackOps .animate-pulse {
+  opacity: 0.8;
+}
+
+/* Enhanced shadows for depth */
+body.theme-sunny .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(251, 146, 60, 0.1), 0 4px 6px -2px rgba(251, 146, 60, 0.05) !important;
+}
+
+body.theme-blackOps .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.1), 0 4px 6px -2px rgba(239, 68, 68, 0.05) !important;
+}
+
+/* Focus states for accessibility */
+body.theme-sunny *:focus {
+  outline-color: rgba(251, 146, 60, 0.5) !important;
+}
+
+body.theme-blackOps *:focus {
+  outline-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* Theme toggle dropdown specific styling */
+body.theme-sunny .bg-gray-900\/95 {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid rgba(251, 146, 60, 0.3) !important;
+}
+
+body.theme-blackOps .bg-gray-900\/95 {
+  background-color: rgba(17, 24, 39, 0.98) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+/* AI Generator specific fixes */
+body.theme-sunny .bg-red-500 {
+  background-color: #dc2626 !important;
+}
+
+body.theme-blackOps .bg-red-500 {
+  background-color: #ef4444 !important;
+}
+
+body.theme-sunny .bg-gray-800 {
+  background-color: #fef9c3 !important;
+}
+
+body.theme-blackOps .bg-gray-800 {
+  background-color: #374151 !important;
+}
+
+/* Equipment checklist items */
+body.theme-sunny .bg-gray-700 {
+  background-color: #fef3c7 !important;
+}
+
+body.theme-blackOps .bg-gray-700 {
+  background-color: #1f2937 !important;
+}
+
+/* Workout cards */
+body.theme-sunny .border-gray-800\/50 {
+  border-color: rgba(251, 146, 60, 0.3) !important;
+}
+
+body.theme-blackOps .border-gray-800\/50 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Navbar Theme Styling */
+
+/* Sunny Theme Navbar */
+body.theme-sunny .navbar {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 251, 235, 0.95), rgba(255, 255, 255, 0.95)) !important;
+  border-bottom-color: rgba(251, 146, 60, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body.theme-sunny .navbar .text-gray-100 {
+  color: #1f2937 !important;
+}
+
+body.theme-sunny .navbar .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+body.theme-sunny .navbar .text-gray-400 {
+  color: #4b5563 !important;
+}
+
+body.theme-sunny .navbar .text-red-400 {
+  color: #dc2626 !important;
+}
+
+body.theme-sunny .navbar .bg-red-500\/10 {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+body.theme-sunny .navbar .border-red-500\/30 {
+  border-color: rgba(220, 38, 38, 0.3) !important;
+}
+
+body.theme-sunny .navbar .border-red-500\/50 {
+  border-color: rgba(220, 38, 38, 0.5) !important;
+}
+
+body.theme-sunny .navbar .border-gray-800\/50 {
+  border-color: rgba(251, 146, 60, 0.3) !important;
+}
+
+body.theme-sunny .navbar .hover\:bg-red-500\/10:hover {
+  background-color: rgba(220, 38, 38, 0.1) !important;
+}
+
+body.theme-sunny .navbar .hover\:text-red-400:hover {
+  color: #dc2626 !important;
+}
+
+body.theme-sunny .navbar .dropdown .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.98), rgba(255, 251, 235, 0.98)) !important;
+  border-color: rgba(251, 146, 60, 0.3) !important;
+}
+
+body.theme-sunny .navbar .bg-green-400 {
+  background-color: #059669 !important;
+}
+
+/* Black Ops Theme Navbar */
+body.theme-blackOps .navbar {
+  background: linear-gradient(to right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95)) !important;
+  border-bottom-color: rgba(239, 68, 68, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body.theme-blackOps .navbar .text-gray-100 {
+  color: #f9fafb !important;
+}
+
+body.theme-blackOps .navbar .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+body.theme-blackOps .navbar .text-gray-400 {
+  color: #d1d5db !important;
+}
+
+body.theme-blackOps .navbar .text-red-400 {
+  color: #ef4444 !important;
+}
+
+body.theme-blackOps .navbar .bg-red-500\/10 {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+body.theme-blackOps .navbar .border-red-500\/30 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+body.theme-blackOps .navbar .border-red-500\/50 {
+  border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+body.theme-blackOps .navbar .border-gray-800\/50 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+body.theme-blackOps .navbar .hover\:bg-red-500\/10:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+body.theme-blackOps .navbar .hover\:text-red-400:hover {
+  color: #ef4444 !important;
+}
+
+body.theme-blackOps .navbar .dropdown .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, rgba(17, 24, 39, 0.98), rgba(31, 41, 55, 0.98)) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+body.theme-blackOps .navbar .bg-green-400 {
+  background-color: #10b981 !important;
+}
+
+/* Jungle Theme Navbar */
+body.theme-jungle .navbar {
+  background: linear-gradient(to right, rgba(6, 95, 70, 0.95), rgba(5, 150, 105, 0.95), rgba(6, 95, 70, 0.95)) !important;
+  border-bottom-color: rgba(251, 191, 36, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+body.theme-jungle .navbar .text-gray-100 {
+  color: #d1fae5 !important;
+}
+
+body.theme-jungle .navbar .text-gray-500 {
+  color: #34d399 !important;
+}
+
+body.theme-jungle .navbar .text-gray-400 {
+  color: #6ee7b7 !important;
+}
+
+body.theme-jungle .navbar .text-red-400 {
+  color: #fbbf24 !important;
+}
+
+body.theme-jungle .navbar .bg-red-500\/10 {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+body.theme-jungle .navbar .border-red-500\/30 {
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+body.theme-jungle .navbar .border-red-500\/50 {
+  border-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+body.theme-jungle .navbar .border-gray-800\/50 {
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+body.theme-jungle .navbar .hover\:bg-red-500\/10:hover {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+body.theme-jungle .navbar .hover\:text-red-400:hover {
+  color: #fbbf24 !important;
+}
+
+body.theme-jungle .navbar .dropdown .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, rgba(6, 95, 70, 0.98), rgba(5, 150, 105, 0.98)) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+body.theme-jungle .navbar .bg-green-400 {
+  background-color: #34d399 !important;
+}
+
+/* Navbar hover effects for all themes */
+body.theme-sunny .navbar .group:hover .bg-red-500\/10 {
+  background-color: rgba(220, 38, 38, 0.15) !important;
+}
+
+body.theme-blackOps .navbar .group:hover .bg-red-500\/10 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+body.theme-jungle .navbar .group:hover .bg-red-500\/10 {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+}
+
+/* Navbar buttons and interactive elements */
+body.theme-sunny .navbar .btn {
+  color: #1f2937 !important;
+}
+
+body.theme-blackOps .navbar .btn {
+  color: #f9fafb !important;
+}
+
+body.theme-jungle .navbar .btn {
+  color: #d1fae5 !important;
+}
+
+/* Jungle Theme */
+body.theme-jungle {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #064e3b 100%) !important;
+  --cursor-theme: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23fbbf24' stroke='%23f59e0b' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto;
+}
+
+body.theme-jungle .text-gray-100 { color: #d1fae5 !important; }
+body.theme-jungle .text-gray-400 { color: #6ee7b7 !important; }
+body.theme-jungle .text-gray-500 { color: #34d399 !important; }
+body.theme-jungle .text-gray-600 { color: #10b981 !important; }
+body.theme-jungle .bg-gray-900\/50 { background-color: rgba(6, 95, 70, 0.8) !important; }
+body.theme-jungle .bg-gray-800\/50 { background-color: rgba(5, 150, 105, 0.8) !important; }
+body.theme-jungle .bg-gray-800\/30 { background-color: rgba(5, 150, 105, 0.4) !important; }
+body.theme-jungle .border-gray-800\/50 { border-color: rgba(52, 211, 153, 0.5) !important; }
+body.theme-jungle .border-gray-700\/50 { border-color: rgba(52, 211, 153, 0.7) !important; }
+body.theme-jungle .border-gray-700\/30 { border-color: rgba(52, 211, 153, 0.3) !important; }
+body.theme-jungle .text-red-400 { color: #fbbf24 !important; }
+body.theme-jungle .bg-red-500\/10 { background-color: rgba(251, 191, 36, 0.15) !important; }
+body.theme-jungle .bg-red-500\/20 { background-color: rgba(251, 191, 36, 0.25) !important; }
+body.theme-jungle .border-red-500\/30 { border-color: rgba(251, 191, 36, 0.4) !important; }
+body.theme-jungle .border-red-500\/50 { border-color: rgba(251, 191, 36, 0.6) !important; }
+body.theme-jungle .bg-gray-800 { background-color: #065f46 !important; }
+body.theme-jungle .bg-gray-700 { background-color: #047857 !important; }
+
+/* Framer Motion animation enhancements */
+.motion-safe {
+  will-change: transform, opacity;
+}
+
+/* Enhanced button animations */
+.enhanced-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhanced-button:hover {
+  transform: translateY(-2px);
+}
+
+.enhanced-button:active {
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.enhanced-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhanced-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color, #ef4444);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-color, #dc2626);
+}
+
+/* Fix for theme toggle background */
+body.theme-sunny .bg-gray-900\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.theme-jungle .bg-gray-900\/95 {
+  background-color: rgba(6, 95, 70, 0.95) !important;
+}
+
+/* Fix progress bars */
+body.theme-sunny .bg-gray-800 {
+  background-color: #e5e7eb !important;
+}
+
+body.theme-jungle .bg-gray-800 {
+  background-color: #065f46 !important;
+}
