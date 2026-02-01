@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    target: 'es2015', // Support older browsers
+    target: 'es2020', // Chrome 80+ for better compatibility
     polyfillDynamicImport: true,
     rollupOptions: {
       output: {
@@ -26,9 +26,13 @@ export default defineConfig({
   },
   server: {
     host: true, // Allow external connections
-    port: 5173
+    port: 5173,
+    cors: true // Enable CORS for Chrome
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion']
+  },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
   }
 })
