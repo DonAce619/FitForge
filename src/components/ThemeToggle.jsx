@@ -32,7 +32,7 @@ export default function ThemeToggle() {
   const currentThemeData = getTheme(currentTheme)
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
+    <div className="relative">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -40,7 +40,7 @@ export default function ThemeToggle() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute bottom-full mb-3 right-0"
+            className="absolute top-full mt-2 right-0 z-[100]"
           >
             <div className="bg-gray-900/95 backdrop-blur-xl border border-gray-700/50 rounded-xl p-4 shadow-2xl w-48">
               <div className="space-y-2">
@@ -96,7 +96,7 @@ export default function ThemeToggle() {
             setIsOpen(!isOpen)
             playSound('buttonClick', 0.3)
           }}
-          className="rounded-full p-2 shadow-lg backdrop-blur-xl border border-gray-600/30 hover:border-gray-500/50 transition-all duration-300"
+          className="rounded-full p-1.5 shadow-lg backdrop-blur-xl border border-gray-600/30 hover:border-gray-500/50 transition-all duration-300"
           style={{
             background: currentThemeData.gradients?.button || 'linear-gradient(135deg, #ef4444, #dc2626)',
             boxShadow: currentThemeData.shadows?.button || '0 4px 6px -1px rgba(239, 68, 68, 0.1)'
@@ -107,7 +107,7 @@ export default function ThemeToggle() {
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Palette className="w-4 h-4 text-white" />
+            <Palette className="w-3.5 h-3.5 text-white" />
           </motion.div>
         </button>
       </motion.div>

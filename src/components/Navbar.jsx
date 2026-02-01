@@ -5,6 +5,7 @@ import {
   MapPinIcon,
   ChevronDownIcon
 } from '@heroicons/react/24/outline'
+import ThemeToggle from './ThemeToggle'
 
 export default function Navbar({ currentView, onHomeClick }) {
   return (
@@ -68,6 +69,11 @@ export default function Navbar({ currentView, onHomeClick }) {
             HOME
           </span>
         </button>
+      </div>
+      
+      {/* Theme Toggle */}
+      <div className="flex items-center px-3 border-l border-gray-800/50">
+        <ThemeToggle />
       </div>
       
       {/* Status indicator */}
