@@ -13,5 +13,22 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    target: 'es2015', // Support older browsers
+    polyfillDynamicImport: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['framer-motion', '@heroicons/react']
+        }
+      }
+    }
   },
+  server: {
+    host: true, // Allow external connections
+    port: 5173
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'framer-motion']
+  }
 })

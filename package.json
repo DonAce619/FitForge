@@ -2,8 +2,15 @@
   "name": "fitforge",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://DonAce619.github.io/FitForge",
   "type": "module",
+  "homepage": "https://DonAce619.github.io/FitForge",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
