@@ -17,10 +17,14 @@ html {
   display: inline-block !important;
   width: auto !important;
   max-width: none !important;
+  min-width: fit-content !important;
   overflow: visible !important;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
 }
 
 /* Fix navbar text truncation */
@@ -34,6 +38,18 @@ html {
   overflow: visible !important;
   text-overflow: clip !important;
   white-space: nowrap !important;
+}
+
+/* Force navbar logo display */
+.navbar .flex-1 {
+  overflow: visible !important;
+  min-width: fit-content !important;
+}
+
+.navbar .flex-1 > div {
+  overflow: visible !important;
+  width: 100% !important;
+  min-width: fit-content !important;
 }
 
 /* Custom cursor styles */
