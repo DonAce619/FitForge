@@ -10,13 +10,13 @@ export default function Navbar({ currentView, onHomeClick }) {
   return (
     <div className="navbar bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 
       border-b border-gray-800/50 backdrop-blur-lg sticky top-0 z-50">
-      <div className="flex-1">
-        <a href="#" className="btn btn-ghost gap-3 text-xl hover:bg-red-500/10 transition-all duration-300 group">
-          <div className="p-2 rounded-lg bg-red-500/10 border border-red-500/30 group-hover:border-red-500/50 transition-colors">
+      <div className="flex-1 min-w-0 pr-4">
+        <a href="#" className="btn btn-ghost gap-3 text-xl hover:bg-red-500/10 transition-all duration-300 group min-w-0">
+          <div className="p-2 rounded-lg bg-red-500/10 border border-red-500/30 group-hover:border-red-500/50 transition-colors flex-shrink-0">
             <ShieldCheckIcon className="h-6 w-6 text-red-400" />
           </div>
-          <div className="flex flex-col items-start min-w-0">
-            <span className="font-bold text-gray-100 uppercase tracking-normal text-lg whitespace-nowrap overflow-visible">
+          <div className="flex flex-col items-start min-w-0 flex-1">
+            <span className="text-fitforge font-bold text-gray-100 uppercase tracking-tight text-lg whitespace-nowrap">
               FITFORGE
             </span>
             <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">

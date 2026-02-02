@@ -12,6 +12,30 @@ html {
   scroll-margin-top: 5rem;
 }
 
+/* Fix text rendering and cutoff issues */
+.text-fitforge {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: none !important;
+  overflow: visible !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Fix navbar text truncation */
+.navbar .btn {
+  overflow: visible !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.navbar .btn span {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+
 /* Custom cursor styles */
 body {
   cursor: var(--cursor-theme, url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='8' fill='%23ef4444' stroke='%23dc2626' stroke-width='2'/%3E%3C/svg%3E") 10 10, auto);
