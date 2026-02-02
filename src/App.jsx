@@ -194,7 +194,7 @@ function App() {
                 </div>
                 
                 {recommendedSplits.length > 0 ? (
-                  <div className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {recommendedSplits.map((split, index) => (
                       <WorkoutSplitCard 
                         key={split.id} 

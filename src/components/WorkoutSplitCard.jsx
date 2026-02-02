@@ -35,7 +35,7 @@ export default function WorkoutSplitCard({ split, index, isRecommended = false }
   const progressPercentage = (split.availableCount / split.totalCount) * 100
 
   return (
-    <div className={`animate__animated animate__fadeInUp border rounded-xl overflow-hidden backdrop-blur-lg transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/10 ${
+    <div className={`border rounded-xl overflow-hidden backdrop-blur-lg transition-all duration-200 hover:shadow-2xl hover:shadow-red-500/10 transform hover:scale-[1.02] ${
       isRecommended 
         ? 'bg-gradient-to-br from-red-900/30 to-red-800/20 border-red-500/50' 
         : 'bg-gradient-to-br from-gray-900/50 to-gray-800/50 border-gray-800/50'
@@ -112,7 +112,7 @@ export default function WorkoutSplitCard({ split, index, isRecommended = false }
           </div>
           <div className="w-full bg-gray-800 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-red-500 to-red-400 h-2 rounded-full transition-all duration-500"
+              className="bg-gradient-to-r from-red-500 to-red-400 h-2 rounded-full transition-all duration-300 ease-out"
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
@@ -123,7 +123,7 @@ export default function WorkoutSplitCard({ split, index, isRecommended = false }
           {split.variations.map((variation, vIndex) => (
             <div 
               key={variation.id}
-              className={`border rounded-lg transition-all duration-300 ${
+              className={`border rounded-lg transition-all duration-200 ease-out ${
                 expandedVariation === variation.id
                   ? 'border-red-500/50 bg-red-500/5'
                   : 'border-gray-700/50 bg-gray-800/30 hover:border-red-500/30'
@@ -159,7 +159,7 @@ export default function WorkoutSplitCard({ split, index, isRecommended = false }
               
               {/* Expanded Exercise Details */}
               {expandedVariation === variation.id && (
-                <div className="border-t border-gray-700/50 p-4 space-y-3 animate__animated animate__fadeIn">
+                <div className="border-t border-gray-700/50 p-4 space-y-3 overflow-hidden transition-all duration-300 ease-out">
                   {variation.exercises.map((exercise, eIndex) => (
                     <ExerciseDetail 
                       key={`${exercise.name}-${eIndex}`} 
