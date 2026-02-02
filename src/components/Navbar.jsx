@@ -15,8 +15,8 @@ export default function Navbar({ currentView, onHomeClick }) {
           <div className="p-2 rounded-lg bg-red-500/10 border border-red-500/30 group-hover:border-red-500/50 transition-colors">
             <ShieldCheckIcon className="h-6 w-6 text-red-400" />
           </div>
-          <div className="flex flex-col items-start">
-            <span className="font-bold text-gray-100 uppercase tracking-wider text-lg">
+          <div className="flex flex-col items-start min-w-0">
+            <span className="font-bold text-gray-100 uppercase tracking-normal text-lg whitespace-nowrap overflow-visible">
               FITFORGE
             </span>
             <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">

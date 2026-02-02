@@ -110,7 +110,7 @@ export default function LandingPage({ onGetStarted }) {
             <div className="p-2 rounded-lg bg-red-500/10 border border-red-500/30">
               <FireIcon className="h-6 w-6 text-red-400" />
             </div>
-            <span className="text-xl font-bold text-white uppercase tracking-wider">FitForge</span>
+            <span className="text-xl font-bold text-white uppercase tracking-normal">FitForge</span>
           </div>
           <button
             onClick={handleGetStartedClick}
@@ -138,7 +138,7 @@ export default function LandingPage({ onGetStarted }) {
           {/* Main Heading */}
           <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold text-white leading-tight">
             Welcome to
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400 tracking-normal">
               FitForge
             </span>
           </motion.h1>
