@@ -160,6 +160,55 @@ export default function WorkoutSplitCard({ split, index, isRecommended = false }
               {/* Expanded Exercise Details */}
               {expandedVariation === variation.id && (
                 <div className="border-t border-gray-700/50 p-4 space-y-3 overflow-hidden transition-all duration-300 ease-out">
+                  {/* Execution Protocol */}
+                  {variation.executionProtocol && (
+                    <div className="mb-6 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+                      <h4 className="font-bold text-red-400 mb-3 flex items-center gap-2">
+                        <BoltIcon className="w-4 h-4" />
+                        EXECUTION PROTOCOL
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="text-gray-400 font-semibold">Rest Between Sets:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.restBetweenSets}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-semibold">Rest Between Exercises:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.restBetweenExercises}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-semibold">Tempo:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.tempo}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-semibold">Intensity:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.intensity}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-semibold">Progression:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.progression}</p>
+                        </div>
+                        <div>
+                          <span className="text-gray-400 font-semibold">Frequency:</span>
+                          <p className="text-gray-300">{variation.executionProtocol.frequency}</p>
+                        </div>
+                      </div>
+                      {variation.executionProtocol.tips && (
+                        <div className="mt-4">
+                          <span className="text-gray-400 font-semibold block mb-2">Key Tips:</span>
+                          <ul className="text-gray-300 space-y-1">
+                            {variation.executionProtocol.tips.map((tip, tipIndex) => (
+                              <li key={tipIndex} className="flex items-start gap-2">
+                                <span className="text-red-400 mt-1">•</span>
+                                <span className="text-xs">{tip}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
                   {variation.exercises.map((exercise, eIndex) => (
                     <ExerciseDetail 
                       key={`${exercise.name}-${eIndex}`} 
